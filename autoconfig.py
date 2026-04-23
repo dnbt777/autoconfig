@@ -4,6 +4,7 @@ from autoconfig.commands import (
     cmd_clone,
     cmd_load,
     cmd_new,
+    cmd_rename,
     cmd_rm,
     cmd_save,
     cmd_track,
@@ -35,6 +36,10 @@ def main():
     p_rm = sub.add_parser("rm", help="Remove a template")
     p_rm.add_argument("template")
 
+    p_rename = sub.add_parser("rename", help="Rename a template")
+    p_rename.add_argument("old_template")
+    p_rename.add_argument("new_template")
+
     p_clone = sub.add_parser("clone", help="Clone a template")
     p_clone.add_argument("old_template")
     p_clone.add_argument("new_template")
@@ -53,6 +58,8 @@ def main():
         cmd_new(args.template)
     elif args.command == "rm":
         cmd_rm(args.template)
+    elif args.command == "rename":
+        cmd_rename(args.old_template, args.new_template)
     elif args.command == "clone":
         cmd_clone(args.old_template, args.new_template)
 

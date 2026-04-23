@@ -22,6 +22,19 @@ def cmd_rm(name):
     print(f"Removed template: {name}")
 
 
+def cmd_rename(old_name, new_name):
+    old_dir = get_template_dir(old_name)
+    new_dir = get_template_dir(new_name)
+    if not old_dir.exists():
+        print(f"Template '{old_name}' does not exist")
+        return
+    if new_dir.exists():
+        print(f"Template '{new_name}' already exists")
+        return
+    old_dir.rename(new_dir)
+    print(f"Renamed '{old_name}' -> '{new_name}'")
+
+
 def cmd_clone(old_name, new_name):
     old_dir = get_template_dir(old_name)
     new_dir = get_template_dir(new_name)
