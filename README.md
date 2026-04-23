@@ -1,5 +1,5 @@
 ## Autoconfig
-quickly transfer scattered config files between systems
+quickly transfer sets of scattered config files between systems
 
 ## example use:
 
