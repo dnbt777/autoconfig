@@ -1,23 +1,38 @@
-automatically load and switch between configs across your system
+## Autoconfig
+quickly transfer scattered config files between systems
 
-example installation: git clone this to a USB
+## example use:
 
-example use: add all your config file paths to a new template, save them with `save <template>`, plug your USB into another system, type `load <template>`
+1. git clone this repo to a USB
+2. create a new template: `py autoconfig.py new config_template_name`
+3. add your config file paths (for example `py autoconfig.py track config_template_name ~/.config/hypr/hyprland.config`)
+4. clone your configs: `py autoconfig.py save <template>` (machine1 -> USB)
+5. plug your USB into another system
+6. load configs onto machine2: `py autoconfig.py load <template>` (USB -> machine2)
 
 
+commands
 ```
 list: lists all templates and their tracked paths
 save <template>: saves configs from all tracked locations on the current machine
+
 load <template>: loads to all locations in the machine
 
-track <template> <path>: tracks a new <path> in your machine
-    track all <path>: adds <path> to all templates
-    untrack all <path>: removes tracked <path> from all templates
+track <template> <path>: tracks a new path in your machine
+    track all <path>: adds path to all templates
+
+untrack <template> <path>
+    untrack all <path>: removes tracked path from all templates
 
 new <template>: creates a new template
+
 rm <template>: removes a template
+
 clone <oldtemplate> <newtemplate>: clones a template
 ```
+
+
+
 
 example template:
 
