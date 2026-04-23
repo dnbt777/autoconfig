@@ -1,6 +1,11 @@
 automatically load and switch between configs across your system
 
+example installation: git clone this to a USB
 
+example use: add all your config file paths to a new template, save them with `save <template>`, plug your USB into another system, type `load <template>`
+
+
+```
 save <template>: saves configs from all tracked locations on the current machine
 load <template>: loads to all locations in the machine
 
@@ -11,22 +16,24 @@ track <template> <path>: tracks a new path in your machine
 new <template>: creates a new template
 rm <template>: removes a template
 clone <oldtemplate> <newtemplate>: clones a template
-
+```
 
 example template:
 
+```
 templates/
     arch/
         template.json
         tracked_files/
             hyprland.config
+```
 
 ```template.json
 {
     "description"   : "config for my arch machine",
     "tracked_files" : [
         {
-            "abspath" : "/home/[user]/.config/hypr/hyprland.config",
+            "path" : "~/.config/hypr/hyprland.config",
             "content_location" : "hyprland.config",
         },
     ]
@@ -34,8 +41,3 @@ templates/
 ```
 
 
-
-Notes:
-- in commands, <path> does not have to be abspath. but abspath is always saved to config templates.
-- the copies of the tracked files are stored in templates/<template>/tracked_files. if there are duplicates then the name is simply changed slightly.
-- description is optional
