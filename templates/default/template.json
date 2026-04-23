@@ -1,0 +1,20 @@
+{
+    "tracked_files": [
+        {
+            "abspath": "~/.tmux.conf",
+            "content_location": ".tmux.conf"
+        },
+        {
+            "abspath": "~/.config/nvim/init.lua",
+            "content_location": "init.lua"
+        },
+        {
+            "abspath": "~/.config/nvim/lua/config/lazy.lua",
+            "content_location": "lazy.lua"
+        },
+        {
+            "abspath": "~/.config/nvim/lua/todo_extras.lua",
+            "content_location": "todo_extras.lua"
+        }
+    ]
+}

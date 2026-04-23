@@ -13,8 +13,6 @@ rm <template>: removes a template
 clone <oldtemplate> <newtemplate>: clones a template
 
 
-
-
 example template:
 
 templates/

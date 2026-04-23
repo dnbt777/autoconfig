@@ -1,0 +1,8 @@
+*
+!.gitignore
+!README.md
+!autoconfig.py
+!autoconfig/
+!autoconfig/*.py
+!templates/
+!templates/**
