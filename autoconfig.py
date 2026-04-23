@@ -2,6 +2,8 @@ import argparse
 
 from autoconfig.commands import (
     cmd_clone,
+    cmd_help,
+    cmd_list,
     cmd_load,
     cmd_new,
     cmd_rename,
@@ -15,6 +17,9 @@ from autoconfig.commands import (
 def main():
     parser = argparse.ArgumentParser(description="Automatically load and switch between configs across your system")
     sub = parser.add_subparsers(dest="command", required=True)
+
+    sub.add_parser("help", help="Show help message")
+    sub.add_parser("list", help="List all templates and their tracked files")
 
     p_save = sub.add_parser("save", help="Save configs from all tracked locations")
     p_save.add_argument("template")
@@ -46,7 +51,11 @@ def main():
 
     args = parser.parse_args()
 
-    if args.command == "save":
+    if args.command == "help":
+        cmd_help()
+    elif args.command == "list":
+        cmd_list()
+    elif args.command == "save":
         cmd_save(args.template)
     elif args.command == "load":
         cmd_load(args.template)

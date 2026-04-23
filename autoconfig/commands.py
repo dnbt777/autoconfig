@@ -4,6 +4,37 @@ from autoconfig.template import Template
 from autoconfig.utils import get_template_dir, list_templates
 
 
+def cmd_help():
+    print("""usage: autoconfig <command> [args]
+
+commands:
+    save <template>                   Save configs from all tracked locations
+    load <template>                   Load configs to all tracked locations
+
+    track <template|all> <path>       Track a new path in a template
+    untrack <template|all> <path>     Untrack a path from a template
+
+    new <template>                    Create a new template
+    rm <template>                     Remove a template
+    rename <old> <new>                Rename a template
+    clone <old> <new>                 Clone a template
+
+    list                              List all templates and tracked files
+    help                              Show this help message""")
+
+
+def cmd_list():
+    templates = list_templates()
+    if not templates:
+        print("No templates")
+        return
+    for name in sorted(templates):
+        t = Template(name)
+        print(f"\033[1m{name}\033[0m")
+        for entry in t.tracked_files:
+            print(f"    {entry['abspath']}")
+
+
 def cmd_new(name):
     if get_template_dir(name).exists():
         print(f"Template '{name}' already exists")
